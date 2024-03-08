@@ -7,10 +7,14 @@ export function useFilters() {
   const filteredElements = (elements) => {
     return elements.filter((element) => {
       return (
+        (filters.category === "all" ||
+          filters.category === element.Category.CategoryName) &&
+        (filters.Priority === "all" ||
+          filters.Priority === element.Category.Priority) &&
         (filters.name === "all" || filters.Name === element.name) &&
-        (filters.Priority === "all" || filters.Priority === element.Priority) &&
         (filters.description === "all" ||
-          filters.description === element.description)
+          filters.description === element.description) &&
+        (filters.minWeight === 0 || filters.minWeight <= element.weight)
       );
     });
   };

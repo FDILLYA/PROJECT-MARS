@@ -39,9 +39,9 @@ export default function Elements({ elements }) {
         </header>
         {totalCategories.map((category) => {
           return (
-            <li key={category.id}>
+            <li key={category.CategoryName}>
               <header>
-                <h2>{category.CategoryName}</h2>
+                <h4>{category.CategoryName}</h4>
               </header>
               <p>{category.sumaelements}</p>
             </li>

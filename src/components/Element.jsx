@@ -134,6 +134,8 @@ export function ElementView({ element }) {
     (category) => category.id === element.Category.id
   );
 
+  console.log(CategoryExist);
+
   return (
     <li>
       <article>
@@ -150,7 +152,7 @@ export function ElementView({ element }) {
           <button onClick={() => removeElement(element.id)}>Eliminar</button>
         </footer>
       </article>
-      {CategoryExist === false ? <p>Category not found</p> : null}
+      {CategoryExist === undefined ? <p>Category not found</p> : null}
     </li>
   );
 }

@@ -24,9 +24,7 @@ export const Categorysreducer = (state, action) => {
     console.log(payload);
 
     const verify = state.find(
-      (element) =>
-        element.CategoryName === payload.CategoryName &&
-        element.Priority === payload.Priority
+      (element) => element.CategoryName === payload.CategoryName
     );
 
     if (verify) return state;
