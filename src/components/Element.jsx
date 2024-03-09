@@ -47,9 +47,23 @@ export function ElementCreate({ setisAgregate }) {
           </label>
         </div>
         <div>
-          <input name="name" required type="text" />
-          <input name="weight" type="number" />
-          <input name="description" type="text" />
+          <input
+            required
+            name="name"
+            type="text"
+            placeholder="Nombre del Elemento"
+          />
+          <input
+            required
+            name="weight"
+            type="number"
+            placeholder="Peso del elemento"
+          />
+          <input
+            name="description"
+            type="text"
+            placeholder="Descripción del elemento"
+          />
         </div>
         <footer>
           <button type="submit">Agregar</button>
@@ -110,11 +124,24 @@ export function ElementEdit({ element, setisEdit }) {
           </label>
         </div>
         <div>
-          <input name="name" required type="text" defaultValue={element.name} />
-          <input name="weight" type="number" defaultValue={element.weight} />
+          <input
+            required
+            name="name"
+            type="text"
+            placeholder="Nombre del Elemento"
+            defaultValue={element.name}
+          />
+          <input
+            required
+            name="weight"
+            type="number"
+            placeholder="Peso del elemento"
+            defaultValue={element.weight}
+          />
           <input
             name="description"
             type="text"
+            placeholder="Descripción del elemento"
             defaultValue={element.description}
           />
         </div>
@@ -173,7 +200,7 @@ export function ElementItem({ element }) {
           setisEdit(!isEdit);
         }}
       >
-        {isEdit ? <p>Terminar</p> : <p>Editar</p>}
+        {isEdit ? <p>Cancelar</p> : <p>Editar</p>}
       </button>
     </>
   );

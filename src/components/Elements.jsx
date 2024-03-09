@@ -26,28 +26,32 @@ export default function Elements({ elements }) {
 
   console.log(totalCategories);
   return (
-    <div>
-      <h2>Elementos</h2>
-      <ul>
-        {elements.map((element) => (
-          <ElementItem key={element.id} element={element}></ElementItem>
-        ))}
-      </ul>
-      <ul>
+    <>
+      <div>
+        <h2>Elementos</h2>
+        <ul>
+          {elements.map((element) => (
+            <ElementItem key={element.id} element={element}></ElementItem>
+          ))}
+        </ul>
+      </div>
+      <div>
         <header>
           <h2>Suma total por Categoria </h2>
         </header>
-        {totalCategories.map((category) => {
-          return (
-            <li key={category.CategoryName}>
-              <header>
-                <h4>{category.CategoryName}</h4>
-              </header>
-              <p>{category.sumaelements}</p>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+        <ul>
+          {totalCategories.map((category) => {
+            return (
+              <li key={category.CategoryName}>
+                <header>
+                  <h4>{category.CategoryName}</h4>
+                </header>
+                <p>{category.sumaelements}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 }

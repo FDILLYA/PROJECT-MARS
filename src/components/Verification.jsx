@@ -28,16 +28,21 @@ export function Verification() {
     }
   }, [ToVerifi]);
 
+  const TotalWeight = elements.reduce((inicial, element) => {
+    return inicial + Number(element.weight);
+  }, 0);
+
   return (
     <article>
       <header>
         <h2>Peso a comprobar {WeightToComprobe}</h2>
       </header>
+      <p>Peso actual de todos lementos {TotalWeight} </p>
       <form onSubmit={handleSubmit}>
         <label>
-          <input type="text" />
+          <input type="number" placeholder="Ingrese el nuevo peso maximo" />
         </label>
-        <button type="submit">Cambiar Peso</button>
+        <button type="submit">Cambiar peso soportado</button>
       </form>
       <div>
         {ActiveVerifi === true ? <p>Peso aceptado</p> : <p>Exceso de peso</p>}

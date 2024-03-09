@@ -48,8 +48,20 @@ export function CategoryEdit() {
       {acCateg ? (
         <>
           <div>
-            <input type="text" name="categorynmae" />
-            <input type="number" name="priority" />
+            <input
+              required
+              type="text"
+              name="categorynmae"
+              placeholder="Nombre de Categoria"
+            />
+            <input
+              required
+              type="number"
+              min={1}
+              max={5}
+              name="priority"
+              placeholder="Ingrese Prioridad 1 - 5"
+            />
           </div>
           <button type="submit">Guardar</button>
         </>
@@ -102,8 +114,20 @@ export function CategoryCreate() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Ingrese nombre de la categoria" />
-      <input min="1" max="5" type="number" placeholder="Ingrese Prioridad" />
+      <input
+        required
+        type="text"
+        name="categorynmae"
+        placeholder="Nombre de Categoria"
+      />
+      <input
+        required
+        type="number"
+        min={1}
+        max={5}
+        name="priority"
+        placeholder="Ingrese Prioridad 1 - 5"
+      />
       <button type="submit">Crear</button>
     </form>
   );
@@ -124,7 +148,10 @@ export function CategoryOps() {
 
   return (
     <>
-      <h2>Accion con Categories</h2>
+      <header>
+        <h2>Accion con Categories</h2>
+      </header>
+
       <div>
         <select htmlFor="" onChange={handleSelectChange}>
           <option value=""></option>
