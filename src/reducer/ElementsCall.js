@@ -10,6 +10,7 @@ export const initialState = [
   {
     id: 1,
     Category: {
+      id: 1,
       Priority: 1,
       CategoryName: "Propulsion",
     },
@@ -20,6 +21,7 @@ export const initialState = [
   {
     id: 2,
     Category: {
+      id: 2,
       Priority: 2,
       CategoryName: "Power",
     },
@@ -30,6 +32,7 @@ export const initialState = [
   {
     id: 3,
     Category: {
+      id: 3,
       Priority: 3,
       CategoryName: "Electronics",
     },

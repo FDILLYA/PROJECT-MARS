@@ -6,6 +6,9 @@ export function CreateElement() {
 
   return (
     <>
+      <header>
+        <h2>Creacíon de Elementos</h2>
+      </header>
       {isAgregate ? (
         <ElementCreate setisAgregate={setIsAgregate}></ElementCreate>
       ) : null}
