@@ -17,18 +17,18 @@ export default function App() {
   // falta la suma de los pesos de los elementos por categoria ✅
   // y hacer los filtros ✅
   // y hacer el verificador de peso para la mision✅
-  // Pulir los textos y sus requirimientos el required ese tipo de cosas
+  // Pulir los textos y sus requirimientos el required ese tipo de cosas ✅
   // ahora solo falta hacerle los estilos
 
   return (
     <>
       <header>
         <h1>Mision Espacial</h1>
-      </header>
-      <main>
         <section>
           <Filters></Filters>
         </section>
+      </header>
+      <main>
         <section>
           <CreateElement></CreateElement>
           <CategoryOps></CategoryOps>
