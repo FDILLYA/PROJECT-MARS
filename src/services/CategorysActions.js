@@ -16,7 +16,7 @@ export function ActionsCategorys() {
   };
 
   const UpdateCategory = (category) => {
-    fetch("http://localhost:3000/Categorys", {
+    fetch(`http://localhost:3000/Categorys/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

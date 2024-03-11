@@ -16,7 +16,7 @@ export function ActionsElements() {
   };
 
   const updateElementAPI = (element) => {
-    fetch("http://localhost:3000/elements", {
+    fetch(`http://localhost:3000/elements/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
