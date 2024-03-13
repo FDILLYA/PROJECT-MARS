@@ -2,16 +2,21 @@ let contador = 4;
 export const initialStateCategorys = [
   {
     id: 1,
+    Priority: 0,
+    CategoryName: "Undefined",
+  },
+  {
+    id: 2,
     Priority: 1,
     CategoryName: "Propulsion",
   },
   {
-    id: 2,
+    id: 3,
     Priority: 2,
     CategoryName: "Power",
   },
   {
-    id: 3,
+    id: 4,
     Priority: 3,
     CategoryName: "Electronics",
   },

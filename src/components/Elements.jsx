@@ -3,11 +3,8 @@ import { useElements } from "../hooks/useElements";
 import { ElementItem } from "./Element";
 import { useCategorys } from "../hooks/useCategory";
 
-export default function Elements({ elements }) {
+export default function Elements({ elements, okCategorys }) {
   const { categorys } = useCategorys();
-
-  const category1sum = elements.filter((element) => element.Category.id === 1);
-  console.log(category1sum);
 
   const totalCategories = categorys.map((category) => {
     const categorysum = elements.filter(
@@ -31,7 +28,11 @@ export default function Elements({ elements }) {
         <h2>Elementos</h2>
         <ul>
           {elements.map((element) => (
-            <ElementItem key={element.id} element={element}></ElementItem>
+            <ElementItem
+              categorys={okCategorys}
+              key={element.id}
+              element={element}
+            ></ElementItem>
           ))}
         </ul>
       </div>

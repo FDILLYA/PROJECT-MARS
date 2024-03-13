@@ -1,8 +1,8 @@
 import { useId, useRef, useState } from "react";
 import { useCategorys } from "../hooks/useCategory";
 
-export function CategoryEdit() {
-  const { categorys, updateCategory } = useCategorys();
+export function CategoryEdit({ categorys }) {
+  const { updateCategory } = useCategorys();
   const unId = useId();
   const [acCateg, setacCateg] = useState();
 
@@ -11,7 +11,7 @@ export function CategoryEdit() {
     console.log(event.target.elements[0].value);
     const categoryId = Number(event.target.elements["selects"].value);
     const CategoryName = event.target.elements["categorynmae"].value;
-    const Priority = event.target.elements["priority"].value;
+    const Priority = Number(event.target.elements["priority"].value);
 
     const category = categorys.find((category) => category.id === categoryId);
 
@@ -70,8 +70,8 @@ export function CategoryEdit() {
   );
 }
 
-export function CategoryDelete() {
-  const { categorys, removeCategory } = useCategorys();
+export function CategoryDelete({ categorys }) {
+  const { removeCategory } = useCategorys();
   const unId = useId();
 
   const handleSubmit = (event) => {
@@ -133,7 +133,7 @@ export function CategoryCreate() {
   );
 }
 
-export function CategoryOps() {
+export function CategoryOps({ OkCategorys }) {
   const [edit, setEdit] = useState(false);
   const [create, setCreate] = useState(false);
   const [deleteCategory, setDeleteCategory] = useState(false);
@@ -162,9 +162,11 @@ export function CategoryOps() {
         {!edit && !create && !deleteCategory ? (
           <p>Seleccione una accion</p>
         ) : null}
-        {edit ? <CategoryEdit></CategoryEdit> : null}
+        {edit ? <CategoryEdit categorys={OkCategorys}></CategoryEdit> : null}
         {create ? <CategoryCreate></CategoryCreate> : null}
-        {deleteCategory ? <CategoryDelete></CategoryDelete> : null}
+        {deleteCategory ? (
+          <CategoryDelete categorys={OkCategorys}></CategoryDelete>
+        ) : null}
       </div>
     </>
   );

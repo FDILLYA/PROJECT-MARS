@@ -1,6 +1,7 @@
 import { useId } from "react";
-import { useCategorys } from "../hooks/useCategory";
+
 import { useFilters } from "../hooks/useFilters";
+import { useCategorys } from "../hooks/useCategory";
 
 export function Filters() {
   const { categorys } = useCategorys();
@@ -31,6 +32,11 @@ export function Filters() {
       category: categoryName,
     });
   };
+
+  const uniquePriority = categorys
+    .map((category) => category.Priority)
+    .filter((value, index, self) => self.indexOf(value) === index);
+
   // listo ahora en teoria no se puede repetir nombre de categoria
   return (
     <>
@@ -50,10 +56,10 @@ export function Filters() {
         <label htmlFor={PriorityId}>Prioridad</label>
         <select name="priority" id={PriorityId}>
           <option value="all">Todos</option>
-          {categorys.map((category) => {
+          {uniquePriority.map((Priority) => {
             return (
-              <option key={category.id} value={category.Priority}>
-                {category.Priority}
+              <option key={Priority} value={Priority}>
+                {Priority}
               </option>
             );
           })}

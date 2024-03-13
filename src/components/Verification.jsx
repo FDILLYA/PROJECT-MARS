@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { useElements } from "../hooks/useElements";
 
-export function Verification() {
-  const { elements } = useElements();
+export function Verification({ elements }) {
   const [ToVerifi, setToVerifi] = useState();
   const [WeightToComprobe, setWeightToCOmprobe] = useState(200);
   const [ActiveVerifi, setActiveVerifi] = useState();
@@ -28,10 +26,15 @@ export function Verification() {
     }
   }, [ToVerifi]);
 
-  const TotalWeight = elements.reduce((inicial, element) => {
+  const ConfirmElements = elements.filter(
+    (element) => element.Category.CategoryName !== "Undefined"
+  );
+
+  const TotalWeight = ConfirmElements.reduce((inicial, element) => {
     return inicial + Number(element.weight);
   }, 0);
 
+  console.log(TotalWeight);
   return (
     <article>
       <header>

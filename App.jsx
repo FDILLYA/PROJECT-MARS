@@ -3,41 +3,46 @@ import { CreateElement } from "./src/components/CreateElement";
 import Elements from "./src/components/Elements";
 import { Filters } from "./src/components/Filters";
 import { Verification } from "./src/components/Verification";
+import { useCategorys } from "./src/hooks/useCategory";
 import { useElements } from "./src/hooks/useElements";
 import { useFilters } from "./src/hooks/useFilters";
 
 export default function App() {
+  const { categorys } = useCategorys();
   const { elements } = useElements();
+  const { InsertBodyCategory } = useCategorys();
   const { filteredElements } = useFilters();
-  const FilterElements = filteredElements(elements);
-  // Definitivamente hacer un p en rojito en los elementos que ✅ a medias
-  // tengan un category borrado sino borraria los que no tienen category
-  // y eso daria mucho zzzzzzzzz
-  // lo de arriba creo que se puede con los filtros toca ver
-  // falta la suma de los pesos de los elementos por categoria ✅
-  // y hacer los filtros ✅
-  // y hacer el verificador de peso para la mision✅
-  // Pulir los textos y sus requirimientos el required ese tipo de cosas ✅
+
+  const elementsWithCategory = InsertBodyCategory(elements);
+  const FilterElements = filteredElements(elementsWithCategory);
+  const OkCategorys = categorys.filter(
+    (category) => category.CategoryName !== "Undefined"
+  );
+  // Corregir el map de Prioridad
+  // Hacer que category sea un find dentro de cada element
   // ahora solo falta hacerle los estilos
 
   return (
     <>
       <header>
-        <h1>Mision Espacial</h1>
+        <h1>Mision Espacial Hacia Marte</h1>
         <section>
           <Filters></Filters>
         </section>
       </header>
       <main>
         <section>
-          <CreateElement></CreateElement>
-          <CategoryOps></CategoryOps>
+          <CreateElement categorys={OkCategorys}></CreateElement>
+          <CategoryOps OkCategorys={OkCategorys}></CategoryOps>
         </section>
         <section>
-          <Elements elements={FilterElements}></Elements>
+          <Elements
+            okCategorys={OkCategorys}
+            elements={FilterElements}
+          ></Elements>
         </section>
         <section>
-          <Verification></Verification>
+          <Verification elements={elementsWithCategory}></Verification>
         </section>
       </main>
     </>

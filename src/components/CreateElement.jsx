@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ElementCreate, ElementEdit } from "./Element";
 
-export function CreateElement() {
+export function CreateElement({ categorys }) {
   const [isAgregate, setIsAgregate] = useState(false);
 
   return (
@@ -10,7 +10,10 @@ export function CreateElement() {
         <h2>Creacíon de Elementos</h2>
       </header>
       {isAgregate ? (
-        <ElementCreate setisAgregate={setIsAgregate}></ElementCreate>
+        <ElementCreate
+          categorys={categorys}
+          setisAgregate={setIsAgregate}
+        ></ElementCreate>
       ) : null}
       <button
         onClick={() => {

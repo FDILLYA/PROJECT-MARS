@@ -2,16 +2,14 @@ import { useId, useState } from "react";
 import { useElements } from "../hooks/useElements";
 import { useCategorys } from "../hooks/useCategory";
 
-export function ElementCreate({ setisAgregate }) {
+export function ElementCreate({ setisAgregate, categorys }) {
   const unId = useId();
-  const { categorys } = useCategorys();
 
   const { addElement } = useElements();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const id = Number(event.target.elements["selects"].value);
-    const category = categorys.find((category) => category.id === id);
 
     const name = event.target.elements.name.value;
     const description = event.target.elements.description.value;
@@ -21,9 +19,7 @@ export function ElementCreate({ setisAgregate }) {
       name: name,
       description: description,
       weight: weight,
-      Category: {
-        ...category,
-      },
+      Category: id,
     };
 
     addElement(toupdateElement);
@@ -73,16 +69,14 @@ export function ElementCreate({ setisAgregate }) {
   );
 }
 
-export function ElementEdit({ element, setisEdit }) {
+export function ElementEdit({ element, setisEdit, categorys }) {
   const unId = useId();
-  const { categorys } = useCategorys();
 
   const { updateElement } = useElements();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const id = Number(event.target.elements["selects"].value);
-    const category = categorys.find((category) => category.id === id);
 
     const name = event.target.elements.name.value;
     const description = event.target.elements.description.value;
@@ -93,9 +87,7 @@ export function ElementEdit({ element, setisEdit }) {
       name: name,
       description: description,
       weight: weight,
-      Category: {
-        ...category,
-      },
+      Category: id,
     };
 
     updateElement(toupdateElement);
@@ -184,13 +176,17 @@ export function ElementView({ element }) {
   );
 }
 
-export function ElementItem({ element }) {
+export function ElementItem({ element, categorys }) {
   const [isEdit, setisEdit] = useState(false);
 
   return (
     <>
       {isEdit ? (
-        <ElementEdit setisEdit={setisEdit} element={element}></ElementEdit>
+        <ElementEdit
+          categorys={categorys}
+          setisEdit={setisEdit}
+          element={element}
+        ></ElementEdit>
       ) : (
         <ElementView element={element}></ElementView>
       )}

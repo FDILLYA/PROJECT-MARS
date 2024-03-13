@@ -2,40 +2,27 @@ import { CallApi } from "../services/ElementsCallApi";
 // lo de abajo no me deja y pues por mientras usare un let xd era el let o instalar una biblioteca como uuid pero bueno
 // import { randomUUID } from "node:crypto";
 import { ActionsElements } from "../services/ElementsActions";
-import { useCategorys } from "../hooks/useCategory";
 
 const { addElementAPI, removeElementAPI, updateElementAPI } = ActionsElements();
 let contador = 4;
 export const initialState = [
   {
     id: 1,
-    Category: {
-      id: 1,
-      Priority: 1,
-      CategoryName: "Propulsion",
-    },
+    Category: 2,
     name: "Element 1",
     weight: 200,
     description: "Element 1 description",
   },
   {
     id: 2,
-    Category: {
-      id: 2,
-      Priority: 2,
-      CategoryName: "Power",
-    },
+    Category: 3,
     name: "Element 2",
     weight: 200,
     description: "Element 2 description",
   },
   {
     id: 3,
-    Category: {
-      id: 3,
-      Priority: 3,
-      CategoryName: "Electronics",
-    },
+    Category: 4,
     name: "Element 3",
     weight: 200,
     description: "Element 3 description",
