@@ -40,33 +40,37 @@ export function Filters() {
   // listo ahora en teoria no se puede repetir nombre de categoria
   return (
     <>
-      <h2>Filtros</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={CategoryNameId}>Category Name</label>
-        <select name="categoryName" id={CategoryNameId}>
-          <option value="all">Todos</option>
-          {categorys.map((category) => {
-            return (
-              <option key={category.id} value={category.CategoryName}>
-                {category.CategoryName}
-              </option>
-            );
-          })}
-        </select>
-        <label htmlFor={PriorityId}>Prioridad</label>
-        <select name="priority" id={PriorityId}>
-          <option value="all">Todos</option>
-          {uniquePriority.map((Priority) => {
-            return (
-              <option key={Priority} value={Priority}>
-                {Priority}
-              </option>
-            );
-          })}
-        </select>
+      <div>
+        <h2>Filtros</h2>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={CategoryNameId}>Category Name</label>
+          <select name="categoryName" id={CategoryNameId}>
+            <option value="all">Todos</option>
+            {categorys.map((category) => {
+              return (
+                <option key={category.id} value={category.CategoryName}>
+                  {category.CategoryName}
+                </option>
+              );
+            })}
+          </select>
+          <label htmlFor={PriorityId}>Prioridad</label>
+          <select name="priority" id={PriorityId}>
+            <option value="all">Todos</option>
+            {uniquePriority.map((Priority) => {
+              return (
+                <option key={Priority} value={Priority}>
+                  {Priority}
+                </option>
+              );
+            })}
+          </select>
 
-        <button type="submit">Filtrar</button>
-      </form>
+          <button type="submit">Filtrar</button>
+        </form>
+      </div>
       <div>
         <label htmlFor={minWeightId}>Peso minimo a partir de:</label>
         <input
