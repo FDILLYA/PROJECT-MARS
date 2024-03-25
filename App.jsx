@@ -24,8 +24,9 @@ export default function App() {
   const elementsWithCategory = InsertBodyCategory(elements);
   const FilterElements = filteredElements(elementsWithCategory);
   const OkCategorys = categorys.filter(
-    (category) => category.CategoryName !== "Undefined"
+    (category) => category.categoryname !== "Undefined"
   );
+
   // Corregir el map de Prioridad
   // Hacer que category sea un find dentro de cada element
   // ahora solo falta hacerle los estilos

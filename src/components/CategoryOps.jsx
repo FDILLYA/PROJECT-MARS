@@ -10,15 +10,15 @@ export function CategoryEdit({ categorys }) {
     event.preventDefault();
     console.log(event.target.elements[0].value);
     const categoryId = Number(event.target.elements["selects"].value);
-    const CategoryName = event.target.elements["categorynmae"].value;
-    const Priority = Number(event.target.elements["priority"].value);
+    const categoryname = event.target.elements["categorynmae"].value;
+    const priority = Number(event.target.elements["priority"].value);
 
     const category = categorys.find((category) => category.id === categoryId);
 
     updateCategory({
       ...category,
-      CategoryName,
-      Priority,
+      categoryname,
+      priority,
     });
   };
 
@@ -39,7 +39,7 @@ export function CategoryEdit({ categorys }) {
           {categorys.map((category) => {
             return (
               <option key={category.id} value={category.id}>
-                {category.CategoryName}
+                {category.categoryname}
               </option>
             );
           })}
@@ -88,8 +88,8 @@ export function CategoryDelete({ categorys }) {
           {categorys.map((category) => {
             console.log(category);
             return (
-              <option key={category.CategoryName} value={category.id}>
-                {category.CategoryName}
+              <option key={category.categoryname} value={category.id}>
+                {category.categoryname}
               </option>
             );
           })}
@@ -105,11 +105,11 @@ export function CategoryCreate() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const CategoryName = event.target.elements[0].value;
-    const Priority = event.target.elements[1].value;
-    console.log(CategoryName, Priority);
+    const categoryname = event.target.elements[0].value;
+    const priority = event.target.elements[1].value;
+    console.log(categoryname, priority);
 
-    addCategory({ CategoryName, Priority });
+    addCategory({ categoryname, priority });
   };
 
   return (

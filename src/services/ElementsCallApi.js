@@ -1,7 +1,10 @@
 export async function CallApi() {
-  const response = await fetch("http://localhost:1234/elements", {
-    method: "GET",
-  });
+  const response = await fetch(
+    "https://mars-api-dev-xndm.4.us-1.fl0.io/elements",
+    {
+      method: "GET",
+    }
+  );
 
   const data = await response.json();
 

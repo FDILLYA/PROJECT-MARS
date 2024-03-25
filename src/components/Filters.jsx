@@ -28,13 +28,13 @@ export function Filters() {
 
     setFilters({
       ...filters,
-      Priority: priorityif,
+      priority: priorityif,
       category: categoryName,
     });
   };
 
   const uniquePriority = categorys
-    .map((category) => category.Priority)
+    .map((category) => category.priority)
     .filter((value, index, self) => self.indexOf(value) === index);
 
   // listo ahora en teoria no se puede repetir nombre de categoria
@@ -50,8 +50,8 @@ export function Filters() {
             <option value="all">Todos</option>
             {categorys.map((category) => {
               return (
-                <option key={category.id} value={category.CategoryName}>
-                  {category.CategoryName}
+                <option key={category.id} value={category.categoryname}>
+                  {category.categoryname}
                 </option>
               );
             })}
@@ -59,10 +59,10 @@ export function Filters() {
           <label htmlFor={PriorityId}>Prioridad</label>
           <select name="priority" id={PriorityId}>
             <option value="all">Todos</option>
-            {uniquePriority.map((Priority) => {
+            {uniquePriority.map((priority) => {
               return (
-                <option key={Priority} value={Priority}>
-                  {Priority}
+                <option key={priority} value={priority}>
+                  {priority}
                 </option>
               );
             })}

@@ -27,7 +27,7 @@ export function Verification({ elements }) {
   }, [ToVerifi]);
 
   const ConfirmElements = elements.filter(
-    (element) => element.Category.CategoryName !== "Undefined"
+    (element) => element.category.categoryname !== "Undefined"
   );
 
   const TotalWeight = ConfirmElements.reduce((inicial, element) => {

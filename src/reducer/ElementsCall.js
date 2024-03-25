@@ -5,24 +5,24 @@ import { ActionsElements } from "../services/ElementsActions";
 
 const { addElementAPI, removeElementAPI, updateElementAPI } = ActionsElements();
 let contador = 4;
-export const initialState = [
+export const initialState = (await CallApi()) || [
   {
     id: 1,
-    Category: 2,
+    category: 2,
     name: "Element 1",
     weight: 200,
     description: "Element 1 description",
   },
   {
     id: 2,
-    Category: 3,
+    category: 3,
     name: "Element 2",
     weight: 200,
     description: "Element 2 description",
   },
   {
     id: 3,
-    Category: 4,
+    category: 4,
     name: "Element 3",
     weight: 200,
     description: "Element 3 description",

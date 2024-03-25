@@ -3,6 +3,7 @@ import {
   Categorysreducer,
   initialStateCategorys,
 } from "../reducer/CategorysCall";
+import { useCategoriesinit } from "../hooks/useCategoryInit";
 
 function useCategorysReducer() {
   const [categorys, dispatch] = useReducer(
@@ -15,7 +16,7 @@ function useCategorysReducer() {
   };
 
   const removeCategory = (categoryName) => {
-    dispatch({ type: "REMOVE_CATEGORY", payload: categoryName });
+    dispatch({ type: "REMOVE_CATEGORY", payload: categoryname });
   };
 
   const updateCategory = (category) => {

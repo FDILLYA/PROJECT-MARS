@@ -5,7 +5,7 @@ export const FiltersContext = createContext();
 export function FiltersProvider({ children }) {
   const [filters, setFilters] = useState({
     category: "all",
-    Priority: "all",
+    priority: "all",
     name: "all",
     description: "all",
     minWeight: 0,

@@ -8,22 +8,22 @@ export function useCategorys() {
   const InsertBodyCategory = (elements) => {
     return elements.map((element) => {
       const CategoryBody = categorys.find(
-        (category) => category.id === element.Category
+        (category) => category.id === element.category
       );
 
       if (CategoryBody !== undefined) {
         return {
           ...element,
-          Category: CategoryBody,
+          category: CategoryBody,
         };
       }
 
       return {
         ...element,
-        Category: {
+        category: {
           id: 1,
-          Priority: 0,
-          CategoryName: "Undefined",
+          priority: 0,
+          categoryname: "Undefined",
         },
       };
     });

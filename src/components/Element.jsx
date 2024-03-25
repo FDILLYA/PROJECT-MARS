@@ -19,7 +19,7 @@ export function ElementCreate({ setisAgregate, categorys }) {
       name: name,
       description: description,
       weight: weight,
-      Category: id,
+      category: id,
     };
 
     addElement(toupdateElement);
@@ -34,8 +34,8 @@ export function ElementCreate({ setisAgregate, categorys }) {
             <select name="selects" id={unId}>
               {categorys.map((category) => {
                 return (
-                  <option key={category.CategoryName} value={category.id}>
-                    {category.CategoryName}
+                  <option key={category.categoryname} value={category.id}>
+                    {category.categoryname}
                   </option>
                 );
               })}
@@ -87,7 +87,7 @@ export function ElementEdit({ element, setisEdit, categorys }) {
       name: name,
       description: description,
       weight: weight,
-      Category: id,
+      category: id,
     };
 
     updateElement(toupdateElement);
@@ -102,13 +102,13 @@ export function ElementEdit({ element, setisEdit, categorys }) {
             <select
               name="selects"
               id={unId}
-              defaultValue={element.Category.CategoryName}
+              defaultValue={element.category.categoryname}
             >
               {categorys.map((category) => {
                 console.log(category);
                 return (
-                  <option key={category.CategoryName} value={category.id}>
-                    {category.CategoryName}
+                  <option key={category.categoryName} value={category.id}>
+                    {category.categoryName}
                   </option>
                 );
               })}
@@ -150,7 +150,7 @@ export function ElementView({ element }) {
   const { categorys } = useCategorys();
 
   const CategoryExist = categorys.find(
-    (category) => category.id === element.Category.id
+    (category) => category.id === element.category.id
   );
 
   console.log(CategoryExist);
@@ -159,8 +159,8 @@ export function ElementView({ element }) {
     <li>
       <article>
         <div>
-          <h2>{element.Category.Priority}</h2>
-          <h2>{element.Category.CategoryName}</h2>
+          <h2>{element.category.priority}</h2>
+          <h2>{element.category.categoryname}</h2>
         </div>
         <div>
           <h3>{element.name} </h3>

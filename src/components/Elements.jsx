@@ -8,7 +8,7 @@ export default function Elements({ elements, okCategorys }) {
 
   const totalCategories = categorys.map((category) => {
     const categorysum = elements.filter(
-      (element) => element.Category.id === category.id
+      (element) => element.category.id === category.id
     );
     const sumaelements = categorysum.reduce(
       (acc, element) => acc + Number(element.weight),
@@ -16,7 +16,7 @@ export default function Elements({ elements, okCategorys }) {
     );
 
     return {
-      CategoryName: category.CategoryName,
+      categoryname: category.categoryname,
       sumaelements,
     };
   });
@@ -43,9 +43,9 @@ export default function Elements({ elements, okCategorys }) {
         <ul>
           {totalCategories.map((category) => {
             return (
-              <li key={category.CategoryName}>
+              <li key={category.categoryname}>
                 <header>
-                  <h4>{category.CategoryName}</h4>
+                  <h4>{category.categoryname}</h4>
                 </header>
                 <p>{category.sumaelements}</p>
               </li>

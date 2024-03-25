@@ -1,24 +1,30 @@
+import { CategorysCallApi } from "../services/CategorysCallApi";
+
+import { ActionsCategorys } from "../services/CategorysActions";
+
+const { addCategoryAPI, removeCategoryAPI, updateCategoryAPI } =
+  ActionsCategorys();
 let contador = 4;
-export const initialStateCategorys = [
+export const initialStateCategorys = (await CategorysCallApi()) || [
   {
     id: 1,
-    Priority: 0,
-    CategoryName: "Undefined",
+    priority: 0,
+    categoryname: "Undefined",
   },
   {
     id: 2,
-    Priority: 1,
-    CategoryName: "Propulsion",
+    priority: 1,
+    categoryname: "Propulsion",
   },
   {
     id: 3,
-    Priority: 2,
-    CategoryName: "Power",
+    priority: 2,
+    categoryname: "Power",
   },
   {
     id: 4,
-    Priority: 3,
-    CategoryName: "Electronics",
+    priority: 3,
+    categoryname: "Electronics",
   },
 ];
 
@@ -29,7 +35,7 @@ export const Categorysreducer = (state, action) => {
     console.log(payload);
 
     const verify = state.find(
-      (element) => element.CategoryName === payload.CategoryName
+      (element) => element.categoryname === payload.categoryname
     );
 
     if (verify) return state;
