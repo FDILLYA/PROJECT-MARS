@@ -3,7 +3,6 @@ import {
   Categorysreducer,
   initialStateCategorys,
 } from "../reducer/CategorysCall";
-import { useCategoriesinit } from "../hooks/useCategoryInit";
 
 function useCategorysReducer() {
   const [categorys, dispatch] = useReducer(

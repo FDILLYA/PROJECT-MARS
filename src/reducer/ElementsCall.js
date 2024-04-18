@@ -5,7 +5,7 @@ import { ActionsElements } from "../services/ElementsActions";
 
 const { addElementAPI, removeElementAPI, updateElementAPI } = ActionsElements();
 let contador = 4;
-export const initialState = (await CallApi()) || [
+export const initialState = [
   {
     id: 1,
     category: 2,
