@@ -5,7 +5,7 @@ import { ActionsCategorys } from "../services/CategorysActions";
 const { addCategoryAPI, removeCategoryAPI, updateCategoryAPI } =
   ActionsCategorys();
 let contador = 4;
-export const initialStateCategorys = (await CategorysCallApi()) || [
+export const initialStateCategorys = [
   {
     id: 1,
     priority: 0,
